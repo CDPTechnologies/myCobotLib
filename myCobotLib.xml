@@ -1,0 +1,5 @@
+<Library Name="myCobotLib">
+ <Models>
+  <Model Name="myCobotLib.myCobotIO"/>
+ </Models>
+</Library>

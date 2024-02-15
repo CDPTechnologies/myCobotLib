@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Model Name="myCobotLib.myCobotIO">
+ <ModelTypeClass>C++</ModelTypeClass>
+ <BaseModel>IOServer</BaseModel>
+ <Element Name="Priority" Value="high"></Element>
+ <Element Name="fs" Value="10"></Element>
+ <Attributes>
+ <Attribute Name="Model" Type="string" Value="myCobotLib.myCobotIO" ReadOnly="1" Required="1"></Attribute>
+  <Attribute Name="Description" Type="string" Value="myCobot robotic arm (by Elephant Robotics) controller library"></Attribute>
+  <Attribute Name="CommDebugFlags" Type="unsigned char" Description="Flags for communication to debug print" TypeHint="Flags" Flags="S - Servo set commands; s - Servo get commands; G - Gripper set commands; g - Gripper get commands; A - Atom set commands; a - Atom get commands; B - All command byte dumps"></Attribute>
+ </Attributes>
+ <Signals></Signals>
+ <Element AcceptsBase="SerialTransport" Property="0" Name="Transport" Model="AggregateBaseModel"></Element>
+ <Transport Name="SerialTransport" BaudRate="1000000" ComPort="/dev/ttyAMA0" Timeout="1"></Transport>
+ <Element AcceptsBase="CDPSignalChannel&lt;&gt;" Property="0" Name="IOChannel"></Element>
+ <IOChannel Input="1" Name="ServoControlMode" Model="CDPSignalChannel&lt;unsigned char&gt;" TypeHint="Selection" Selection="0 - Released;1 - Position control;2 - Speed control;3 - Position+Speed control"></IOChannel>
+ <IOChannel Input="1" Name="ServoMode1SpeedLimit" Model="CDPSignalChannel&lt;unsigned char&gt;" Unit="%" Value="100"></IOChannel>
+ <IOChannel Input="1" Name="Joint1AngleDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="Joint2AngleDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="Joint3AngleDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="Joint4AngleDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="Joint5AngleDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="Joint6AngleDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="Joint1SpeedDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad/s"></IOChannel>
+ <IOChannel Input="1" Name="Joint2SpeedDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad/s"></IOChannel>
+ <IOChannel Input="1" Name="Joint3SpeedDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad/s"></IOChannel>
+ <IOChannel Input="1" Name="Joint4SpeedDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad/s"></IOChannel>
+ <IOChannel Input="1" Name="Joint5SpeedDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad/s"></IOChannel>
+ <IOChannel Input="1" Name="Joint6SpeedDesired" Model="CDPSignalChannel&lt;double&gt;" Unit="rad/s"></IOChannel>
+ <IOChannel Input="0" Name="Joint1AngleCurrent" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="0" Name="Joint2AngleCurrent" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="0" Name="Joint3AngleCurrent" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="0" Name="Joint4AngleCurrent" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="0" Name="Joint5AngleCurrent" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="0" Name="Joint6AngleCurrent" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="GetActuatorPosition" Model="CDPSignalChannel&lt;bool&gt;"></IOChannel>
+ <IOChannel Input="0" Name="ActuatorX" Model="CDPSignalChannel&lt;double&gt;" Unit="mm"></IOChannel>
+ <IOChannel Input="0" Name="ActuatorY" Model="CDPSignalChannel&lt;double&gt;" Unit="mm"></IOChannel>
+ <IOChannel Input="0" Name="ActuatorZ" Model="CDPSignalChannel&lt;double&gt;" Unit="mm"></IOChannel>
+ <IOChannel Input="0" Name="ActuatorAngleX" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="0" Name="ActuatorAngleY" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="0" Name="ActuatorAngleZ" Model="CDPSignalChannel&lt;double&gt;" Unit="rad"></IOChannel>
+ <IOChannel Input="1" Name="ControlAtom" Model="CDPSignalChannel&lt;bool&gt;"></IOChannel>
+ <IOChannel Input="1" Name="AtomLedColorBlue" Model="CDPSignalChannel&lt;unsigned char&gt;"></IOChannel>
+ <IOChannel Input="1" Name="AtomLedColorGreen" Model="CDPSignalChannel&lt;unsigned char&gt;"></IOChannel>
+ <IOChannel Input="1" Name="AtomLedColorRed" Model="CDPSignalChannel&lt;unsigned char&gt;"></IOChannel>
+ <IOChannel Input="1" Name="GripperControlMode" Model="CDPSignalChannel&lt;unsigned char&gt;" TypeHint="Selection" Selection="0 - No control;1 - Read state;2 - Set and Read state"></IOChannel>
+ <IOChannel Input="1" Name="GripperSpeedLimit" Model="CDPSignalChannel&lt;unsigned char&gt;" Unit="%" Value="100"></IOChannel>
+ <IOChannel Input="1" Name="GripperOpennessDesired" Model="CDPSignalChannel&lt;unsigned char&gt;" Unit="%" Value="100"></IOChannel>
+ <IOChannel Input="0" Name="GripperOpennessCurrent" Model="CDPSignalChannel&lt;unsigned char&gt;" Unit="%"></IOChannel>
+ <IOChannel Input="0" Name="AtomButtonState" Model="CDPSignalChannel&lt;bool&gt;"></IOChannel>
+</Model>
